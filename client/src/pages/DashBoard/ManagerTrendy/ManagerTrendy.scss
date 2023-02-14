@@ -1,0 +1,19 @@
+.managerMusic {
+    padding: 20px;
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+        padding-bottom: 10px;
+    }
+    .MuiTableCell-root {
+        font-size: 16px;
+    }
+    .thumbnail {
+        width: 70px;
+        height: 70px;
+    }
+    .btn__add {
+        font-size: 14px;
+        text-transform: capitalize;
+    }
+}

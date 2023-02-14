@@ -1,0 +1,18 @@
+.container {
+    width: 202px;
+    border-radius: 4px;
+    height: 254px;
+}
+
+.sekeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+      background: hsl(200, 20%, 80%);
+    }
+    100% {
+      background: hsl(200, 20%, 95%);
+    }
+  }

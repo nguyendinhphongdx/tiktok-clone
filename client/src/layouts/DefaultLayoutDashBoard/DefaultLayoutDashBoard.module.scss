@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    margin-top: var(--default-layout-header-height);
+    flex: 1 auto;
+    align-self: center;
+}
+
+.header-v3 {
+    max-width: none !important;
+}
+
+.footer {
+    width: 100%;
+}
+
+.content {
+    width: calc(100% - 290px);
+}

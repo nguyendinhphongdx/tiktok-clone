@@ -1,0 +1,71 @@
+.menu-list-share {
+    height: 100%;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    width: 280px;
+    padding: 6px 6px 6px 0;
+    max-height: 448px;
+    overflow: auto;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+    transition: opacity 300ms ease 0s;
+    opacity: 1;
+    overflow-y: overlay;
+
+    &::before {
+        right: 24px;
+        border-width: 0 8px 8px;
+        transform-origin: center bottom;
+        content: '';
+        position: absolute;
+        top: -8px;
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 9px solid rgb(255, 255, 255);
+        z-index: 10;
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 0;
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.share-text {
+    margin-left: 12px;
+}
+
+.share-link {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 11px 16px;
+    position: relative;
+
+    &:last-child {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        padding: 0px 16px;
+        position: relative;
+    }
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}

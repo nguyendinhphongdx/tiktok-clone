@@ -1,0 +1,106 @@
+.center-footer {
+    display: block;
+}
+
+.footer-container {
+    width: 100%;
+    color: #fff;
+    background: #000;
+    padding-bottom: 24px;
+}
+
+.footer-content-wrapper {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+    padding: 40px 0 0 378px;
+}
+
+.tiktok-logo {
+    display: block;
+    position: absolute;
+    left: 144px;
+    top: 43px;
+}
+
+.logo-container {
+    direction: ltr;
+    transform: scale(1);
+
+    .icon-logo {
+        width: 33px;
+    }
+
+    .text-logo {
+        width: 120px;
+        margin-left: 6px;
+        position: relative;
+        top: -2px;
+    }
+}
+
+.footer-content-column {
+    -webkit-flex: 1 1 0%;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    max-width: 226px;
+    padding-right: 8px;
+    color: #fff;
+
+    span {
+        display: block;
+        text-align: left;
+
+        a {
+            display: inline;
+            -webkit-text-decoration: none;
+            text-decoration: none;
+            position: relative;
+
+            h5 {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 28px;
+                position: relative;
+                color: #ccc;
+                display: inline;
+            }
+        }
+    }
+}
+
+.footer-bottom-wrapper {
+    padding: 0 144px;
+    margin-top: 60px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: flex-end;
+    -webkit-box-align: flex-end;
+    -ms-flex-align: flex-end;
+    align-items: flex-end;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: flex-end;
+
+    .coppy-right {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        color: #8a8b91;
+    }
+}

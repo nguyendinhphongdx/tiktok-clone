@@ -1,0 +1,28 @@
+.form{
+    .MuiTextField-root{
+        width: 100%;
+        margin: 10px 0;
+    }
+    .MuiInputLabel-root, .MuiOutlinedInput-input{
+        font-size: 14px;
+    }
+    .wrapInput{
+        padding: 5px;
+    }
+    .wrapBtn{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .errorText{
+        color: red;
+        font-size: 14px;
+    }
+    .MuiButtonBase-root{
+        font-size: 14px;
+        text-transform: capitalize;
+    }
+    .MuiAvatar-root{
+        width: 70px;
+        height: 70px;
+    }
+}

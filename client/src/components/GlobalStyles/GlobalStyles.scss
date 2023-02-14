@@ -1,0 +1,127 @@
+@import 'normalize.css';
+
+:root {
+    --priamry: #fe2c55;
+    --black: #000;
+    --white: #fff;
+    --text-color: #333;
+
+    --font-family: 'ProximaNova', sans-serif;
+
+    //Default Layout
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
+    --default-layout-horizontal-spacer: 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    color: var(--text-color);
+    overflow-y: overlay;
+    scroll-behavior: smooth;
+}
+
+//Scrollbar CSS
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .15);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+button,
+input,
+[tabindex] {
+    border: none;
+    outline: none;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+//Font emmbeded
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/font/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/font/ProximaNova-Semibold.woff2');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/font/Proxima-Nova-Bold.woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: SofiaPro;
+    src: url('/assets/font/sofiapro-bold.woff2');
+    font-weight: 700;
+}
+
+//custom tooltip
+body {
+    .tippy-box {
+        background-color: rgba(84, 84, 84, 0.92);
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+    }
+
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-content {
+        padding: 8px 9px;
+    }
+
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow::before {
+        top: -8px;
+    }
+}
+
+// #tippy-16 {
+//     z-index: 9!important;
+//     font-weight: 600;
+//     font-size: 16px;
+//     line-height: 22px;
+//     width: 280px;
+//     padding: 6px 0 6px 0;
+//     max-height: 448px;
+//     overflow: auto;
+//     background: rgb(255, 255, 255);
+//     border-radius: 8px;
+//     box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+//     transition: opacity 300ms ease 0s;
+//     opacity: 1;
+// }

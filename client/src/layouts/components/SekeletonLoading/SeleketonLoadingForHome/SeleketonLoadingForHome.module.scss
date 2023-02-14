@@ -1,0 +1,55 @@
+.container {
+    position: relative;
+    padding: 20px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.sekeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+      background: hsl(200, 20%, 80%);
+    }
+    100% {
+      background: hsl(200, 20%, 95%);
+    }
+  }
+
+.avatar {
+    width: 56px;
+    height:56px;
+    border-radius: 50%;
+}
+
+.content {
+    width: 100%;
+}
+
+.nickname {
+    width: 50%;
+    height: 1.4rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+    margin-left: 12px;
+}
+
+.name {
+    margin-top: 10px;
+    width: 30%;
+    height: 1.4rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+    margin-left: 12px;
+}
+
+.video {
+    width: 282px;
+    height: 504px;
+    margin: 10px 0 0 64px;
+    border-radius: 0.5rem;
+}
+
+

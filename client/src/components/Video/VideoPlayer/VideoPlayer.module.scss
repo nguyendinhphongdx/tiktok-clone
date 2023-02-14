@@ -1,0 +1,142 @@
+.container {
+    flex: 1 1 896px;
+    background: rgb(0, 0, 0);
+    position: relative;
+    overflow: hidden;
+    padding: 0px 80px;
+}
+
+//videp player
+.blur-background {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    filter: blur(2px);
+    left: 50%;
+    top: 50%;
+    transform: scale(11);
+    opacity: 0.3;
+    background: center center / cover no-repeat;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: rgba(22, 24, 35, 0.06);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.video-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.basic-player-wrapper {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+
+    video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+//Button close
+.btn-close {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    top: 20px;
+    transition: opacity 0.3s ease 0s;
+    left: 20px;
+}
+
+//logo
+.style-logo {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    border-radius: 100px;
+    left: 84px;
+}
+
+//
+.video-control-container {
+    width: calc(100% - 160px);
+    height: 24px;
+    padding-inline: 16px;
+    position: absolute;
+    opacity: 1;
+    transition: opacity 0.3s ease 0s;
+    bottom: 28px;
+    cursor: initial;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 56.25vh;
+}
+
+.btn-report {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 16px;
+    background-color: rgba(255, 255, 255, 0.12);
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 100px;
+    position: absolute;
+    top: 20px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    right: 20px;
+
+    .style {
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+}
+
+.video {
+    &::-webkit-media-controls-fullscreen-button {
+        display: none;
+    }
+}

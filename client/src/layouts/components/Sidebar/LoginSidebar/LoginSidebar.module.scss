@@ -1,0 +1,66 @@
+.wrapper {
+    position: relative;
+    padding: 20px 8px 24px 8px;
+    margin: 0;
+}
+
+.wrapper:before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 0;
+    height: 1px;
+    background: rgba(22, 24, 35, .12);
+    -webkit-transform: scaleY(0.5);
+    -moz-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+.label {
+    color: rgba(22, 24, 35, .5);
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.btn-sidebar-login {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    color: rgba(254, 44, 85, 1);
+    border-color: rgba(254, 44, 85, 1);
+    background-color: rgba(255, 255, 255, 1);
+    min-width: 168px;
+    min-height: 48px;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 600;
+    font-family: SofiaPro,PingFangSC,sans-serif;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    padding: 6px 8px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-top: 20px;
+    width: 100%;
+
+    &:hover {
+        background: rgba(254, 44, 85, 0.06);
+    }
+}

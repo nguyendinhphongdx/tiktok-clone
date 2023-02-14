@@ -1,0 +1,19 @@
+.managerUser{
+    padding: 20px;
+    .title{
+        font-size: 20px;
+        font-weight: 600;
+        padding-bottom: 10px;
+    }
+    .MuiTableCell-root{
+        font-size: 16px;
+    }
+    .MuiSelect-select{
+        padding-top: 25px !important;
+        font-size: 14px;
+    }
+    .MuiAvatar-root{
+        width: 70px;
+        height: 70px;
+    }
+}

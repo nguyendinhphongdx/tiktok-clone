@@ -1,0 +1,44 @@
+.wrapper {
+    position: relative;
+    padding-top: 16px;
+    padding-left: 8px;
+}
+
+.wrapper:before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 0;
+    height: 1px;
+    background: rgba(22, 24, 35, .12);
+    -webkit-transform: scaleY(0.5);
+    -moz-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+.container-footer-link {
+    margin-bottom: 8px;
+}
+
+.footer-link {
+    color: rgba(22, 24, 35, .5);
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 17px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+}
+
+.coppy-right {
+    color: rgba(22, 24, 35, .5);
+    font-family: "IBM Plex Sans",ProximaNova,Arial,Tahoma,PingFangSC,sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 17px;
+    display: inline-block;
+    margin-right: 6px;
+    margin-top: 5px;
+}

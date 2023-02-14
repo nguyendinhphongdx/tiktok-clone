@@ -1,0 +1,13 @@
+.confirmBox{
+    .title{
+        padding-bottom: 20px;
+        font-size: 20px;
+    }
+    .wrapButton{
+        display: flex;
+        justify-content: space-between;
+    }
+    .MuiButton-root{
+        font-size: 14px;
+    }
+}

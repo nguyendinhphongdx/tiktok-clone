@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 100vw;
+    max-width: 100vw;
+    display: flex;
+    margin-top: var(--default-layout-header-height);
+    justify-content: space-between;
+    flex: 1 1 auto;
+    align-self: center;
+    
+}
+
+.header-v2{
+    max-width: 100%;
+}
+
+.sidebar-v2 {
+    width: 240px;
+}
+
+// .content {
+    
+// }

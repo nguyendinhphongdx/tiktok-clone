@@ -1,0 +1,67 @@
+.wrapper {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 8px 8px;
+}
+
+.wrapper:before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 0;
+    height: 1px;
+    background: rgba(22, 24, 35, .12);
+    -webkit-transform: scaleY(0.5);
+    -moz-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+.label {
+    padding: 0 8px;
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 600;
+    color: rgba(22, 24, 35, .75);
+}
+
+.discovery-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.discovery-item {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.discovery-item-container {
+    display: flex;
+    box-sizing: border-box;
+    width: fit-content;
+    max-width: 100%;
+    height: 24px;
+    margin-bottom: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(22, 24, 35, 0.2);
+    border-radius: 12px;
+    background: rgb(255, 255, 255);
+    transition: background 200ms ease-in-out 0s;
+    margin-right: 8px;
+}
+
+.discovery-item-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    padding-left: 8px;
+}

@@ -1,0 +1,1 @@
+export { SeleketonLoadingForList } from './SeleketonLoadingForList'

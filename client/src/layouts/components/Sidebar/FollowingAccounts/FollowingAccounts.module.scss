@@ -1,0 +1,85 @@
+.wrapper {
+    padding: 16px 0;
+    position: relative;
+}
+
+.wrapper:before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 0;
+    height: 1px;
+    background: rgba(22, 24, 35, .12);
+    -webkit-transform: scaleY(0.5);
+    -moz-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+.label {
+    padding: 0 8px;
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 600;
+    color: rgba(22, 24, 35, .75);
+}
+
+.empty {
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0px 8px;
+}
+
+.account-item {
+    display: flex;
+    align-items: center;
+    padding: 5.5px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03)
+    }
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.item-info {
+    flex: 1;
+    margin-left: 12px;
+    line-height: 1.3;
+}
+
+.nickname {
+    font-size: 1.6rem;
+    color: #161823;
+}
+
+.check {
+    margin-left: 4px;
+    font-size: 1.4rem;
+    color: #20d5ec;
+}
+
+.name {
+    font-size: 1.2rem;
+    color: #161823bf;
+}
+
+.more-btn {
+    padding: 0px 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--priamry);
+}

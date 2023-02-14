@@ -1,0 +1,26 @@
+.managerMusic {
+    padding: 20px;
+    .title {
+        font-size: 20px;
+        font-weight: 600;
+        padding: 10px 0;
+    }
+    .MuiTableCell-root {
+        font-size: 16px;
+    }
+    .thumbnail {
+        width: 70px;
+        height: 70px;
+    }
+    .MuiButton-root {
+        font-size: 14px;
+        text-transform: capitalize;
+    }
+    audio {
+        width: 220px;
+    }
+    .link{
+        color: blue;
+        text-decoration: underline;
+    }
+}

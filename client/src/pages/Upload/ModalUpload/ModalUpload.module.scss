@@ -1,0 +1,53 @@
+.mask-container {
+    position: fixed;
+    inset: 0px;
+    display: flex;
+    z-index: 1001;
+    overflow: auto;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    background: rgb(255, 255, 255);
+    border-radius: 9px;
+    width: 310px;
+    z-index: 1000;
+    overflow: hidden;
+    margin: auto;
+}
+
+.modal-title-container {
+    padding: 32px 32px 24px;
+}
+
+.modal-title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgb(22, 24, 35);
+    word-break: break-word;
+    text-align: center;
+}
+
+.modal-btn {
+    padding: 16.5px 16px 17px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+    word-break: break-word;
+    cursor: pointer;
+}
+
+.primary {
+    color: var(--priamry);
+    font-weight: 700;
+}
+
+.modal-mask {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.85);
+}

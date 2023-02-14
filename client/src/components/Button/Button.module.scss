@@ -1,0 +1,102 @@
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: var(--font-family);
+    min-width: 100px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    background: var(--white);
+    border: 1px solid transparent;
+    user-select: none;
+
+    + .wrapper {
+        margin-left: 8px;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.icon + .title,
+.title + .icon {
+    margin-left: 8px;
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+}
+
+//Button types
+.rounded {
+    color: rgba(22, 24, 35, 0.75);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 0 8px;
+    min-width: 90px;
+    height: 32px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    border-radius: 52px;
+    cursor: pointer;
+    line-height: 30px;
+    text-align: center;
+    white-space: nowrap;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(22, 24, 35, 0.12);
+    background-color: rgba(255, 255, 255, 1);
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);   
+    }
+}
+
+.primary {
+    background: var(--priamry);
+    color: var(--white);
+    border-color: var(--priamry);
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+        border-color: var(--priamry);
+    }
+}
+
+.outline {
+    color: var(--priamry);
+    border-color: currentColor;
+
+    &:hover {
+        border-color: currentColor;
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.text {
+    border-color: rgba(22, 24, 35, 0.12);
+
+    &:hover {
+        text-decoration: none;
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+//Button sizes
+.small {
+    min-width: 88px;
+    padding: 4px 16px;
+}
+
+.large {
+    min-width: 140px;
+    padding: 14px 16px;
+}

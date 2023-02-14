@@ -1,0 +1,17 @@
+.total{
+    margin: 10px;
+    .MuiButtonBase-root{
+        font-size: 18px;
+        text-transform: capitalize;
+    }
+    .total{
+        display: flex;
+    }
+    .wrapTotal{
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        margin-right: 30px;
+        font-size: 14px;
+    }
+}

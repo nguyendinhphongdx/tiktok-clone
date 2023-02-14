@@ -1,0 +1,135 @@
+.form-content {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+    height: 50vh;
+    overflow: hidden auto;
+    padding: 16px 16px 0px;
+}
+
+.select-text {
+    padding-bottom: 8px;
+    padding-left: 8px;
+    color: rgba(22, 24, 35, 0.75);
+    height: 22px;
+    line-height: 22px;
+}
+
+.label-radio {
+    min-height: 54px;
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    word-break: break-all;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.reason-text {
+    color: rgb(22, 24, 35);
+    line-height: 22px;
+    font-size: 16px;
+    user-select: none;
+}
+
+.arrow-report {
+    color: rgba(22, 24, 35, 0.5);
+}
+
+.sub-title {
+    padding: 4px 4px 10px 8px;
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.reason-list {
+    margin: 0px;
+    padding-inline-start: 26px;
+
+    li {
+        padding: 6px 6px 6px 0px;
+        color: rgba(22, 24, 35, 0.75);
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 84px;
+    width: 100%;
+    border-top: 0.5px solid rgba(22, 24, 35, 0.2);
+    background-color: rgb(255, 255, 255);
+
+    span {
+        position: absolute;
+        top: 34px;
+        left: 24px;
+        font-size: 16px;
+        color: var(--priamry);
+    }
+
+    button {
+        height: 36px;
+        padding: 7px 16px;
+        line-height: 22px;
+        font-size: 16px;
+        position: absolute;
+        cursor: pointer;
+        top: 24px;
+        right: 24px;
+        color: rgb(255, 255, 255);
+        background: rgb(254, 44, 85);
+        border: none;
+        border-radius: 4px;
+    }
+}
+
+.disabled {
+    user-select: none;
+    cursor: not-allowed !important;
+        color: rgba(22, 24, 35, 0.34) !important;
+        background-color: rgba(235, 235, 235, 1) !important;
+        border-color: rgba(235, 235, 235, 1) !important;
+}
+
+.form-header {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 24px 24px 16px;
+    height: 72px;
+}
+
+.form-title {
+    font-size: 20px;
+    line-height: 32px;
+    color: rgb(22, 24, 35);
+    font-weight: 700;
+    text-align: left;
+    flex: 1 1 0%;
+}
+
+.close-btn {
+    cursor: pointer;
+    padding: 9px;
+    height: 32px;
+
+    .close-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+.back-btn {
+    cursor: pointer;
+    padding: 6px;
+    height: 32px;   
+}

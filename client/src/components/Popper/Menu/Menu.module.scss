@@ -1,0 +1,94 @@
+//Menu wrapper
+.menu-list {
+    width: 224px;
+    position: relative;
+
+    .menu-item {
+        margin-left: 0;
+    }
+
+    &::before {
+        right: 19px;
+        border-width: 0 8px 8px;
+        transform-origin: center bottom;
+        content: "";
+        position: absolute;
+        top: -8px;
+        width: 0; 
+        height: 0; 
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+        border-bottom: 9px solid white;
+    }
+}
+
+.menu-list-user {
+    width: 224px;
+    position: relative;
+
+    .menu-item {
+        margin-left: 0;
+    }
+
+    &::before {
+        right: 19px;
+        border-width: 0 8px 8px;
+        transform-origin: center bottom;
+        content: "";
+        position: absolute;
+        top: -8px;
+        width: 0; 
+        height: 0; 
+        border-left: 9px solid transparent;
+        border-right: 9px solid transparent;
+        border-bottom: 9px solid white;
+    }
+}
+
+.menu-popper {
+    padding-bottom: 8px;
+}
+
+.menu-body {
+    overflow-y: auto;
+}
+
+//Menu items 
+.menu-item {
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 0;
+    padding: 11px 0 11px 16px;
+    line-height: 1.8rem;
+    font-weight: 600;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
+}
+
+//Header 
+.header {
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+    flex-shrink: 0;
+}
+
+.back-btn {
+    width: 50px;
+    height: 100%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

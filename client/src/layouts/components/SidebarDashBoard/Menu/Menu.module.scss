@@ -1,0 +1,49 @@
+.container {
+    margin-bottom: 8px;
+}
+
+.menu-item {
+    display: flex;
+    font-size: 1.8rem !important;
+    font-weight: 700;
+    padding: 8px;
+    align-items: center;
+    border-radius: 4px;
+    transition: background-color ease-in-out 200ms;
+    cursor: pointer;
+    height: 40px;
+
+    &.active {
+        color: var(--priamry);
+
+        .icon {
+            display: none;
+        }
+
+        .active-icon {
+            display: flex;
+        }
+    }
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03)
+    }
+}
+
+.title {
+    margin-left: 8px;
+    margin-top: 6px;
+}
+.icon {
+    .MuiSvgIcon-root{
+        width: 1.5em;
+        height: 1.5rem;
+    }
+}
+.icon, .active-icon {
+    display: flex;
+}
+
+.active-icon {
+    display: none;
+}
