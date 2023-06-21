@@ -111,7 +111,7 @@ function ManageTrendy() {
             const url = `${configBaseURL}/api/trendy/create-trendy`;
             const bodyFormData = new FormData();
             bodyFormData.append('files', values.thumnail);
-            bodyFormData.append('name', values.singer);
+            bodyFormData.append('name', values.name);
             bodyFormData.append('description', values.description);
             const res = await axios.post(url, bodyFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' },

@@ -21,6 +21,7 @@ const routes = {
     manageReport: '/admin/dashboard/manageReport',
     manageTotal: '/admin/dashboard/manageTotal',
     manageVideo: '/admin/dashboard/manageVideo',
+    page404: '*'
 }
 
 export default routes;

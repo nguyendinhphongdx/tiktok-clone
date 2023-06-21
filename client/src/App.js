@@ -9,6 +9,7 @@ import config from './config';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ModalChooseFavorite from './components/ModalChooseFavorite/ModalChooseFavorite';
+import PageNotFound from './pages/404/PageNotFound';
 
 function App({ children }) {
     const check = localStorage.getItem('isNewUser')
@@ -16,12 +17,13 @@ function App({ children }) {
     return (
         <>
             {check === 'true' ? (
-                <ModalChooseFavorite/>
+                <ModalChooseFavorite />
             ) : (
                 <Router>
                     <div className="App">
                         <ToastContainer />
                         <Routes>
+                            <Route path="*" element={<PageNotFound />} />
                             {publicRoutes.map((route, index) => {
                                 //Muốn dùng biến trong jsx thì phải viết hoa chữ cái đầu
 
