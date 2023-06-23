@@ -401,6 +401,16 @@ const getDetailUser = async (req, res) => {
   }
 }
 
+
+const getSettings = async (req, res) => {
+  try{
+    return res.status(200).send("ok");
+  }
+  catch(err){
+    return res.status(500).json({ message: `Internal Server Error: ${err}` });
+  }
+}
+
 module.exports = {
   getListUser: getListUser,
   getCurrentUser: getCurrentUser,
@@ -417,5 +427,6 @@ module.exports = {
   changeStatusTick: changeStatusTick,
   deleteUser: deleteUser,
   getDetailUser: getDetailUser,
-  updateUser: updateUser
+  updateUser: updateUser,
+  getSettings: getSettings,
 };
