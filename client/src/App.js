@@ -23,7 +23,6 @@ function App({ children }) {
                     <div className="App">
                         <ToastContainer />
                         <Routes>
-                            <Route path="*" element={<PageNotFound />} />
                             {publicRoutes.map((route, index) => {
                                 //Muốn dùng biến trong jsx thì phải viết hoa chữ cái đầu
 
@@ -72,6 +71,7 @@ function App({ children }) {
                                     />
                                 );
                             })}
+                            <Route path="*" element={<PageNotFound />} />
                         </Routes>
                         <ModalKey styles={{ visibility: 'hidden' }} />
                     </div>

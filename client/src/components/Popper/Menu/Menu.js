@@ -70,7 +70,7 @@ function Menu({ children, hideOnClick = false, onChange = defaultFn, setState, s
         {
             icon: <FontAwesomeIcon icon={faGear} />,
             title: 'Cài đặt',
-            to: '/settings',
+            to: '#',
         },
         ...MENU_ITEMS,
         {
