@@ -6,7 +6,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 //Thư viện internor sau(thư viện bên trong dự án)
 import styles from './Search.module.scss';
-import { configBaseURL, configHeader } from '~/common/common';
+import { DNS, configBaseURL, configHeader } from '~/common/common';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SeleketonLoadingForSearch from '~/layouts/components/SekeletonLoading/SeleketonLoadingForSearch/index';
@@ -245,7 +245,7 @@ function SearchVideo({ item, followingAccounts, check, renderData, params }) {
 
     const handleHide = () => {
         setShow1(false);
-        const nextURL = `http://localhost:3000/search/${params}`;
+        const nextURL = `${DNS}/search/${params}`;
         const nextTitle = 'My new page title';
         const nextState = { additionalInformation: 'Updated the URL with JS' };
 
@@ -281,7 +281,7 @@ function SearchVideo({ item, followingAccounts, check, renderData, params }) {
                         to={`/${item.author.nickname}/video/${item.id}`}
                         onClick={(e) => {
                             e.preventDefault();
-                            const nextURL = `http://localhost:3000/${item.author.nickname}/video/${item.id}`;
+                            const nextURL = `${DNS}/${item.author.nickname}/video/${item.id}`;
                             const nextTitle = 'My new page title';
                             const nextState = {
                                 additionalInformation: 'Updated the URL with JS',

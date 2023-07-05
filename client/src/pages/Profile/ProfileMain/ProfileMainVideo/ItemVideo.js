@@ -2,6 +2,7 @@ import classNames from 'classnames/bind';
 import { useRef } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { DNS } from '~/common/common';
 import Video from '~/components/Video';
 
 //Thư viện internor sau(thư viện bên trong dự án)
@@ -16,7 +17,7 @@ function ItemVideo({ data, followUser, check, onClick }) {
 
     const handleHide = () => {
         setShow(false)
-        const nextURL = `http://localhost:3000/${data.author.nickname}`;
+        const nextURL = `${DNS}/${data.author.nickname}`;
         const nextTitle = 'My new page title';
         const nextState = { additionalInformation: 'Updated the URL with JS' };
         
@@ -27,7 +28,7 @@ function ItemVideo({ data, followUser, check, onClick }) {
 
     const test = (e) => {
         e.preventDefault();
-        const nextURL = `http://localhost:3000/${data.author.nickname}/video/${data.id}`;
+        const nextURL = `${DNS}/${data.author.nickname}/video/${data.id}`;
         const nextTitle = 'My new page title';
         const nextState = { additionalInformation: 'Updated the URL with JS' };
         

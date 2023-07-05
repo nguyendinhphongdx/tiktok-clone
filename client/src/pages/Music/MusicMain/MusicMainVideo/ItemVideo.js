@@ -5,6 +5,7 @@ import Video from '~/components/Video';
 
 //Thư viện internor sau(thư viện bên trong dự án)
 import styles from './MusicMainVideo.module.scss';
+import { DNS } from '~/common/common';
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +14,7 @@ function ItemVideo({ data, metadata, onClick, check }) {
 
     const handleHide = () => {
         setShow(false)
-        const nextURL = `http://localhost:3000/music/${data.music.name}`;
+        const nextURL = `${DNS}/music/${data.music.name}`;
         const nextTitle = 'My new page title';
         const nextState = { additionalInformation: 'Updated the URL with JS' };
         
@@ -24,7 +25,7 @@ function ItemVideo({ data, metadata, onClick, check }) {
 
     const test = (e) => {
         e.preventDefault();
-        const nextURL = `http://localhost:3000/${data.author.nickname}/video/${data.id}`;
+        const nextURL = `${DNS}/${data.author.nickname}/video/${data.id}`;
         const nextTitle = 'My new page title';
         const nextState = { additionalInformation: 'Updated the URL with JS' };
         

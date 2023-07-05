@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '~/components/Button';
 import ModalReport from '~/components/ModalReport';
 import { CheckProfile, Comment, Heart, LikedVideo, Music, Share, VideoReport } from '~/components/Icons';
+import { useInView } from 'react-intersection-observer';
 
 //Thư viện internor sau(thư viện bên trong dự án)
 import styles from './RecommendItem.module.scss';
@@ -11,7 +12,7 @@ import MenuShare from '../MenuShare';
 import { useEffect, useRef, useState } from 'react';
 import Video from '~/components/Video';
 import axios from 'axios';
-import { basseURL, configBaseURL, configHeader } from '~/common/common';
+import { DNS, basseURL, configBaseURL, configHeader } from '~/common/common';
 import config from '~/config';
 
 const cx = classNames.bind(styles);
@@ -21,6 +22,11 @@ function RecommendItem({ data, index, followUser, check, onClick, onClickShowToa
     const [checkFollow, setCheckFollow] = useState(false);
     const [current, setCurrent] = useState(false);
     const video = useRef();
+    const [inViewRef] = useInView({
+        triggerOnce: true,
+        rootMargin: '0px 0px 200px 0px', // Thay đổi margin phù hợp với kích thước video
+    });
+
     const linkMusic = data.music?.name + '-' + data.music?.id;
     const configHeader1 = {
         headers: {
@@ -45,20 +51,21 @@ function RecommendItem({ data, index, followUser, check, onClick, onClickShowToa
         const nextURL = config.routes.home;
         const nextTitle = 'My new page title';
         const nextState = { additionalInformation: 'Updated the URL with JS' };
-
+        video.current.play();
         // This will replace the current entry in the browser's history, without reloading
         window.history.replaceState(nextState, nextTitle, nextURL);
     };
 
     const test = (e) => {
         e.preventDefault();
-        const nextURL = `http://localhost:3000/${data.author.nickname}/video/${data.id}`;
+        const nextURL = `${DNS}/${data.author.nickname}/video/${data.id}`;
         const nextTitle = 'My new page title';
         const nextState = { additionalInformation: 'Updated the URL with JS' };
 
         // This will replace the current entry in the browser's history, without reloading
         window.history.replaceState(nextState, nextTitle, nextURL);
         setShow(true);
+        video.current.pause();
     };
 
     const handleFollow = async () => {
@@ -84,6 +91,14 @@ function RecommendItem({ data, index, followUser, check, onClick, onClickShowToa
             console.log(error);
         }
     }
+
+    // const handleVideoPlay = () => {
+    //     if (inView) {
+    //         video.current.play();
+    //     } else {
+    //         video.current.pause();
+    //     }
+    // };
 
     return (
         <div className={cx('container')} index={index}>
@@ -142,7 +157,7 @@ function RecommendItem({ data, index, followUser, check, onClick, onClickShowToa
                 </div>
                 {/* video container */}
                 {show && <Video data={data} onClick={handleHide} followUser={followUser} check={check} onClickRender={onClick} />}
-                <div className={cx('video-wrapper')}>
+                <div ref={inViewRef} className={cx('video-wrapper')}>
                     <div className={cx('video-card-container')}>
                         <canvas width="56.25" height="100" className={cx('canvas-video-player')}></canvas>
                         <div className={cx('video-player-container')}>
@@ -157,6 +172,7 @@ function RecommendItem({ data, index, followUser, check, onClick, onClickShowToa
                                             disablePictureInPicture
                                             loop
                                             ref={video}
+                                            // onPlay={handleVideoPlay} onPause={handleVideoPlay}
                                             controlsList="nodownload noplaybackrate nofullscreen"
                                         ></video>
                                     </div>

@@ -2,7 +2,7 @@
 import axios from 'axios';
 import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
-import { configBaseURL } from '~/common/common';
+import { DNS, configBaseURL } from '~/common/common';
 import { CloseModal, EditAvatar } from '~/components/Icons';
 import jwt_decode from 'jwt-decode';
 
@@ -124,7 +124,7 @@ function ModalUpdateProfile({ data, onClick }) {
                     localStorage.setItem('idUser', idUser);
                     localStorage.setItem('avatar', avatar);
 
-                    const nextURL = `http://localhost:3000/${localStorage.getItem('nickName')}`;
+                    const nextURL = `${DNS}/${localStorage.getItem('nickName')}`;
                     const nextTitle = 'My new page title';
                     const nextState = { additionalInformation: 'Updated the URL with JS' };
 

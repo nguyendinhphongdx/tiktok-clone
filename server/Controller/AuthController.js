@@ -51,7 +51,7 @@ const register = async (req, res) => {
 
     const user = new UserModel({
       account: account._id ,
-      avatar: `http://localhost:${process.env.PORT}/public/images/avatar.png`,
+      avatar: `${DNS}:${process.env.PORT}/public/images/avatar.png`,
       nickname: `user${phone}`,
       name: `user${phone}`,
       follower_count: 0,

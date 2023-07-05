@@ -10,7 +10,7 @@ import MenuShare from '../MenuShare';
 import { useEffect, useState } from 'react';
 import Video from '~/components/Video';
 import axios from 'axios';
-import { configBaseURL, configHeader } from '~/common/common';
+import { DNS, configBaseURL, configHeader } from '~/common/common';
 import config from '~/config';
 
 const cx = classNames.bind(styles);
@@ -30,7 +30,7 @@ function RecommendItem({ data, followUser, check, onClick, onClickShowToast }) {
 
     const test = (e) => {
         e.preventDefault();
-        const nextURL = `http://localhost:3000/${data.author.nickname}/video/${data.id}`;
+        const nextURL = `${DNS}/${data.author.nickname}/video/${data.id}`;
         const nextTitle = 'My new page title';
         const nextState = { additionalInformation: 'Updated the URL with JS' };
 
