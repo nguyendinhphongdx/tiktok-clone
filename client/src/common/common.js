@@ -1,6 +1,6 @@
 import axios from 'axios';
-// export const basseURL = 'https://tiktok-server-j9sr.onrender.com';
-export const basseURL = 'http://localhost:5000';
+export const basseURL = 'https://tiktok-server-j9sr.onrender.com';
+// export const basseURL = 'http://localhost:5000';
 export const DNS = window.location.origin;
 export const configBaseURL = axios.defaults.baseURL = basseURL;
 export const configAuthorization = axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
