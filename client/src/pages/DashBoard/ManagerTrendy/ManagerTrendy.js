@@ -94,7 +94,7 @@ function ManageTrendy() {
         try {
             const url = `${configBaseURL}/api/trendy/update/${selectedItem}`;
             const bodyFormData = new FormData();
-            bodyFormData.append('files', values.thumbnail);
+            bodyFormData.append('myImage', values.thumnail);
             bodyFormData.append('name', values.name);
             bodyFormData.append('description', values.description);
             const res = await axios.post(url, bodyFormData, {
@@ -110,7 +110,7 @@ function ManageTrendy() {
         try {
             const url = `${configBaseURL}/api/trendy/create-trendy`;
             const bodyFormData = new FormData();
-            bodyFormData.append('files', values.thumnail);
+            bodyFormData.append('myImage', values.thumnail);
             bodyFormData.append('name', values.name);
             bodyFormData.append('description', values.description);
             const res = await axios.post(url, bodyFormData, {

@@ -1,21 +1,5 @@
 const MusicModel = require("../Models/MusicModel");
 const videoModel = require("../Models/VideoModel");
-const multer = require("multer");
-
-//Phần của Linh
-// SET STORAGE
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "public/music/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-
-var uploadStorage = multer({
-  storage: storage,
-});
 
 // thêm bài hát mới
 const createMusic = async (req, res) => {
@@ -28,8 +12,8 @@ const createMusic = async (req, res) => {
     }
     const musicRecord = new MusicModel({
       name,
-      thumbnail: `http://localhost:5000/public/images/${req.files[0].filename}`,
-      music: `http://localhost:5000/public/images/${req.files[1].filename}`,
+      thumbnail: req.files[0].path,
+      music: req.files[1].path,
       singer,
       watch_count: 0,
     });
@@ -91,12 +75,12 @@ const updateMusic = async (req, res) => {
           name: name,
           thumbnail:
             !!req.files?.length && !!req.files[0]
-              ? `http://localhost:5000/public/images/${req.files[0].filename}`
+              ? req.files[0].path
               : music.name,
           singer: singer,
           music:
             !!req.files?.length && !!req.files[1]
-              ? `http://localhost:5000/public/images/${req.files[1].filename}`
+              ? req.files[1].path
               : music.music,
           watch_count: 0,
         },

@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require('../Controller/UserController')
 const { multerConfigImage } = require("../Helpers/multer");
 const verifyToken = require("../Middleware/auth");
+const driverService = require('../Middleware/driverService');
 
 //Phần của Linh
 router.get("/get-info/:id", userController.getDetailUser);
@@ -11,12 +12,12 @@ router.delete("/delete/:id", verifyToken, userController.deleteUser);
 router.post(
   "/update-info/:id",
   verifyToken,
-  multerConfigImage.array("image", 1),
+  multerConfigImage.single('myImage'), driverService.uploadImage,
   userController.updateUser
 );
 
 //Phần của Tuấn
-router.post('/update', userController.updateProfile)
+router.post('/update', multerConfigImage.single('myImage'), driverService.uploadImage, userController.updateProfile)
 router.post('/:id/update-favorites', userController.updateFavoritesAndIsNewUser)
 router.get('/search', userController.searchUser)
 router.get('/get-liked-video', userController.getLikedVideo)

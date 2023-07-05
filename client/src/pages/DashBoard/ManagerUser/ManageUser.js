@@ -139,7 +139,7 @@ function ManagerUser() {
             bodyFormData.append('nickname', values.nickname);
             bodyFormData.append('description', values.description);
             if(values?.image){
-                bodyFormData.append('image', values.image);
+                bodyFormData.append('myImage', values.image);
             }
             console.log('form', bodyFormData.value);
             const res = await axios.post(`${configBaseURL}/api/users/update-info/${selectedItem}`, bodyFormData);

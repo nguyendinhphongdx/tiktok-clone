@@ -21,6 +21,7 @@ function RecommendItem({ data, index, followUser, check, onClick, onClickShowToa
     const [checkFollow, setCheckFollow] = useState(false);
     const [current, setCurrent] = useState(false);
     const video = useRef();
+    const linkMusic = data.music?.name + '-' + data.music?.id;
     const configHeader1 = {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -61,20 +62,20 @@ function RecommendItem({ data, index, followUser, check, onClick, onClickShowToa
     };
 
     const handleFollow = async () => {
-        if(localStorage.getItem('accessToken')) {
+        if (localStorage.getItem('accessToken')) {
             setCheckFollow(true);
-        try {
-            //
-            await axios.post(`${basseURL}/api/users/follow-user`, configHeader1)
-        } catch (error) {
-            console.log(error);
-        }
+            try {
+                //
+                await axios.post(`${basseURL}/api/users/follow-user`, configHeader1)
+            } catch (error) {
+                console.log(error);
+            }
         } else {
             window.location = config.routes.login
         }
     };
 
-    const handleUnFollow = async() => {
+    const handleUnFollow = async () => {
         setCheckFollow(false);
         try {
             //
@@ -130,7 +131,7 @@ function RecommendItem({ data, index, followUser, check, onClick, onClickShowToa
                     </div>
 
                     <h4 className={cx('h4link')}>
-                        <Link to={`/music/${data.music.name}-${data.music.id}`}>
+                        <Link to={`/music/${linkMusic}`}>
                             <Music className={cx('music-icon')} />
                             <span>
                                 {data.music.name} -{' '}
@@ -140,7 +141,7 @@ function RecommendItem({ data, index, followUser, check, onClick, onClickShowToa
                     </h4>
                 </div>
                 {/* video container */}
-                {show && <Video data={data} onClick={handleHide} followUser={followUser} check={check} onClickRender={onClick}/>}
+                {show && <Video data={data} onClick={handleHide} followUser={followUser} check={check} onClickRender={onClick} />}
                 <div className={cx('video-wrapper')}>
                     <div className={cx('video-card-container')}>
                         <canvas width="56.25" height="100" className={cx('canvas-video-player')}></canvas>
@@ -162,13 +163,13 @@ function RecommendItem({ data, index, followUser, check, onClick, onClickShowToa
                                 </div>
                             </div>
                             <div className={cx('video-control-bottom')}></div>
-                            <ReportForm data={data}/>
+                            <ReportForm data={data} />
                         </div>
                     </div>
                     <div className={cx('video-action-item-container')}>
-                        <LikeVideo data={data} check={check} onClick={onClick}/>
-                        <CommentVideo data={data} onClick={test}/>
-                        <ShareVideo data={data}  onClick={onClick} onClickShowToast={onClickShowToast}/>
+                        <LikeVideo data={data} check={check} onClick={onClick} />
+                        <CommentVideo data={data} onClick={test} />
+                        <ShareVideo data={data} onClick={onClick} onClickShowToast={onClickShowToast} />
                     </div>
                 </div>
             </div>
@@ -180,22 +181,22 @@ function LikeVideo({ data, check, onClick }) {
     const [change, setChange] = useState(false);
 
     useEffect(() => {
-        if(localStorage.getItem('accessToken')) {
-            if(check[0].liked.length > 0) {
+        if (localStorage.getItem('accessToken')) {
+            if (check[0].liked.length > 0) {
                 check[0].liked.forEach((item) => {
-                    if(data.id === item.id) {
+                    if (data.id === item.id) {
                         setChange(true)
                     }
                 })
             }
         }
-    },[check, data.id])
+    }, [check, data.id])
 
     const handlerLikeVideo = async () => {
         if (localStorage.getItem('accessToken')) {
             try {
                 await axios.post(`${configBaseURL}/api/video/liked/${data.id}`, configHeader);
-            } catch (error) {}
+            } catch (error) { }
             onClick()
             setChange(true);
         } else {
@@ -206,8 +207,8 @@ function LikeVideo({ data, check, onClick }) {
     const handlerUnLikeVideo = async () => {
         if (localStorage.getItem('accessToken')) {
             try {
-               await axios.post(`${configBaseURL}/api/video/unliked/${data.id}`, configHeader);
-            } catch (error) {}
+                await axios.post(`${configBaseURL}/api/video/unliked/${data.id}`, configHeader);
+            } catch (error) { }
             onClick()
             setChange(false);
         } else {
@@ -220,7 +221,7 @@ function LikeVideo({ data, check, onClick }) {
             {change ? (
                 <button className={cx('btn-action-item')} onClick={handlerUnLikeVideo}>
                     <span className={cx('like-icon')}>
-                        <LikedVideo/>
+                        <LikedVideo />
                     </span>
                     <span className={cx('like-count')}>{data.heart_count}</span>
                 </button>
@@ -277,7 +278,7 @@ function ReportForm({ data }) {
                 <VideoReport className={cx('icon-flag')} />
                 <span>Báo cáo</span>
             </div>
-            {showReport ? <ModalReport onClick={hideModalReport} data={data}/> : <></>}
+            {showReport ? <ModalReport onClick={hideModalReport} data={data} /> : <></>}
         </>
     );
 }

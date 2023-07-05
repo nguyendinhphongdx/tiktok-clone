@@ -1,60 +1,38 @@
-const multer = require("multer");
-const imageFilter = require("../Helpers/imageFilter");
 const videoModel = require("../Models/VideoModel");
 const musicModel = require("../Models/MusicModel");
 const userModel = require("../Models/UserModel");
 const trendyModel = require("../Models/TagModel");
 
-// SET STORAGE
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "public/video");
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
-
-var upload = multer({
-  storage: storage,
-}).single("myVideo");
-
 //Đăng tải video
 const uploadVideo = async (req, res) => {
   // console.log(req);
   try {
-    upload(req, res, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        let private = false;
-        let music = req.body.music;
-        if (req.body.selection === "Riêng tư") {
-          private = true;
-        }
+    let private = false;
+    let music = req.body.music;
+    if (req.body.selection === "Riêng tư") {
+      private = true;
+    }
 
-        if (req.body.music === "") {
-          music = "636b365a488cd6684bd147a2";
-        }
-        const newVideo = new videoModel({
-          description: req.body.description,
-          trendy: req.body.trendy,
-          music: music,
-          isPrivate: private,
-          video: `http://localhost:5000/public/video/${req.file.filename}`,
-          heart_count: 0,
-          share_count: 0,
-          comment_count: 0,
-          author: req.body.author,
-          watch_count: 0,
-        });
-        newVideo
-          .save()
-          .then(() => res.send("Upload Success!"))
-          .catch((err) => console.log(err));
-      }
+    if (req.body.music === "") {
+      music = "636b365a488cd6684bd147a2";
+    }
+    const newVideo = new videoModel({
+      description: req.body.description,
+      trendy: req.body.trendy,
+      music: music,
+      isPrivate: private,
+      video: req.file.path,
+      heart_count: 0,
+      share_count: 0,
+      comment_count: 0,
+      author: req.body.author,
+      watch_count: 0,
     });
-  } catch (error) {}
+    newVideo
+      .save()
+      .then(() => res.send("Upload Success!"))
+      .catch((err) => console.log(err));
+  } catch (error) { }
 };
 
 //Lấy ra toàn bộ video của người dùng
@@ -150,8 +128,8 @@ const getRandomVideoLogin = async (req, res) => {
   const bearerHeader = req.headers["idaccount"];
   const idAccount = bearerHeader.split(" ")[1];
   const user = await userModel
-  .findOne({ account: idAccount })
-  .populate("fllowing");
+    .findOne({ account: idAccount })
+    .populate("fllowing");
   const arr = user.favorites
   try {
     const arrFllowing = [];
@@ -164,10 +142,10 @@ const getRandomVideoLogin = async (req, res) => {
       .populate("music")
       .populate("trendy");
     const userVideo = await videoModel
-    .find({ author: user._id, isPrivate: { $nin: true } })
-    .populate("author")
-    .populate("music")
-    .populate("trendy");
+      .find({ author: user._id, isPrivate: { $nin: true } })
+      .populate("author")
+      .populate("music")
+      .populate("trendy");
     const check = listVideo.filter((item) => {
       const result = arr.find((item1) => {
         return item.trendy.category === item1
@@ -380,11 +358,11 @@ const getReportVideo = async (req, res) => {
   }
 };
 // admin update video
-const updateVideoByAdmin = async(req, res) => {
-  try{
+const updateVideoByAdmin = async (req, res) => {
+  try {
     const id = req.params.id;
-    const {description} = req.body;
-    const videoRecord = await videoModel.find({_id: id});
+    const { description } = req.body;
+    const videoRecord = await videoModel.findOne({ _id: id });
     if (!videoRecord) {
       return res.status(404).send({ message: "Video không tồn tại" });
     } else {
@@ -393,10 +371,7 @@ const updateVideoByAdmin = async(req, res) => {
         {
           $set: {
             description: description,
-            video:
-              !!req.files?.length && !!req.files[0]
-                ? `http://localhost:5000/public/images/${req.files[0].filename}`
-                : videoRecord.video,
+            video: req.file ? req.file.path : videoRecord.video,
           },
         },
         { new: true },
@@ -409,7 +384,7 @@ const updateVideoByAdmin = async(req, res) => {
       ).clone();
     }
   }
-  catch(err){
+  catch (err) {
     return res.status(500).json({ message: `Internal Server Error: ${err}` });
   }
 

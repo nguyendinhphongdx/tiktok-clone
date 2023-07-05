@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const videoController = require('../Controller/VideoController')
-const { multerConfigFile } = require("../Helpers/multer");
+const { multerConfigVideo } = require("../Helpers/multer");
 const verifyToken = require("../Middleware/auth");
+const driverService = require('../Middleware/driverService');
 
 router.post('/increase-share/:id', videoController.increaseShare)
 router.post('/increase-views/:id', videoController.increaseView)
 router.post('/liked/:id', videoController.likeVideo)
 router.post('/unliked/:id', videoController.unLikeVideo)
-router.post('/upload', videoController.uploadVideo)
+router.post('/upload', multerConfigVideo.single('myVideo'), driverService.uploadVideo, videoController.uploadVideo)
 router.get('/search', videoController.searchVideo)
 router.get('/get-list-video-user/:nickname', videoController.getUserVideo)
 router.get('/get-list-video', videoController.getRandomVideo)
@@ -26,7 +27,7 @@ router.delete("/delete/:id", verifyToken, videoController.deleteVideo);
 router.post(
   "/admin-update/:id",
   verifyToken,
-  multerConfigFile.array("files", 2),
+  multerConfigVideo.single("myVideo"), driverService.uploadVideo,
   videoController.updateVideoByAdmin
 );
 

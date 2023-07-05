@@ -13,7 +13,7 @@ const commentRoute = require('./Router/CommentRoute')
 const reportRoute = require('./Router/ReportRoute')
 const connectDB = require('./Services/ConnectDBService');
 const { createFolder } = require('./Helpers/util');
-const { PATH_VIDEO, PATH_IMAGES } = require('./Config/Constant');
+const { PATH_VIDEOS, PATH_IMAGES, PATH_ASSETS } = require('./Config/Constant');
 
 require('dotenv').config()
 //middleware apply cor add all request
@@ -26,8 +26,10 @@ app.use('/public/video', express.static('public/video'))
 app.use('/public/music', express.static('public/music'))
 
 //create folder if not exists
-createFolder(PATH_VIDEO);
+createFolder(PATH_VIDEOS);
 createFolder(PATH_IMAGES);
+createFolder(PATH_ASSETS);
+
 
 
 //connect database

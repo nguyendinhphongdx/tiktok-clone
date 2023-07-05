@@ -202,103 +202,84 @@ const searchUser = async (req, res) => {
   }
 };
 
-// SET STORAGE
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "public/images");
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
-
-var upload = multer({
-  storage: storage,
-}).single("myImage");
 
 //Update thông tin người dùng
 const updateProfile = async (req, res) => {
   try {
-    upload(req, res, async (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        const listUser = await userModel.find()
-        let check = false
+    const listUser = await userModel.find()
+    let check = false
 
-        //check xem có bị trùng nickname hay không
-        listUser.forEach(item => {
-          if(item.nickname === req.body.nickname) {
-            check = true;
-            return res.status(400).send('Nickname already exists!')
-          }
-        })
-
-        if(check === false) {
-          const currentUser = await userModel.findOne({ _id: req.body.user })
-        let image
-
-        if(req.body.myImage === undefined) {
-          image = currentUser.avatar
-        }
-
-        if(req.file?.filename) {
-          image = `http://localhost:5000/public/images/${req.file.filename}`
-        }
-
-        await userModel.updateOne(
-          { _id: req.body.user },
-          {
-            nickname: req.body.nickname,
-            name: req.body.name,
-            description: req.body.desc,
-            avatar: image,
-          }
-        );
-
-        const user = await userModel
-          .findOne({ _id: req.body.user })
-          .populate("account");
-
-        const jwtToken = jwt.sign(
-          {
-            _id: user.account.id,
-            email: user.account.email,
-            role: user.account.role,
-            nickname: user.nickname,
-            iduser: user.id,
-            avatar: user.avatar,
-          },
-          process.env.SECRECT_JWT,
-          {
-            expiresIn: 36000,
-          }
-        );
-
-        return res.status(200).send({
-          accessToken: jwtToken,
-        });
-        }
+    //check xem có bị trùng nickname hay không
+    listUser.forEach(item => {
+      if (item.nickname === req.body.nickname) {
+        check = true;
+        return res.status(400).send('Nickname already exists!')
       }
-    });
+    })
+
+    if (check === false) {
+      const currentUser = await userModel.findOne({ _id: req.body.user })
+      let image
+
+      if (req.body.myImage === undefined) {
+        image = currentUser.avatar
+      }
+
+      if (req.file) {
+        image = req.file.path
+      }
+
+      await userModel.updateOne(
+        { _id: req.body.user },
+        {
+          nickname: req.body.nickname,
+          name: req.body.name,
+          description: req.body.desc,
+          avatar: image,
+        }
+      );
+
+      const user = await userModel
+        .findOne({ _id: req.body.user })
+        .populate("account");
+
+      const jwtToken = jwt.sign(
+        {
+          _id: user.account.id,
+          email: user.account.email,
+          role: user.account.role,
+          nickname: user.nickname,
+          iduser: user.id,
+          avatar: user.avatar,
+        },
+        process.env.SECRECT_JWT,
+        {
+          expiresIn: 36000,
+        }
+      );
+
+      return res.status(200).send({
+        accessToken: jwtToken,
+      });
+    }
   } catch (error) {
     return res.send(error);
   }
 };
 
 //update ưa thích người dùng và chuyển isNameUser sang false
-const updateFavoritesAndIsNewUser = async(req, res) => {
-    try {
-      const id = req.params.id;
-      const user = await userModel
+const updateFavoritesAndIsNewUser = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const user = await userModel
       .updateOne(
         { _id: id },
         { $set: { favorites: req.body.favorites, isNewUser: false } }
       )
-      res.status(200).send('update successfully')
-    } catch (error) {
-      res.status(404).send(error);
-    }
+    res.status(200).send('update successfully')
+  } catch (error) {
+    res.status(404).send(error);
+  }
 }
 
 ////Phần của Linh///////////////////////////////////////
@@ -369,7 +350,7 @@ const updateUser = async (req, res) => {
           name: name,
           nickname: nickname,
           description: description,
-          avatar: !!req.files?.length ? `http://localhost:5000/public/images/${req.files[0].filename}` : user.avatar
+          avatar: req.file ? req.file.path : user.avatar
         },
       },
       { new: true },
@@ -386,7 +367,7 @@ const updateUser = async (req, res) => {
 };
 //  get detail info
 const getDetailUser = async (req, res) => {
-  try{
+  try {
     const id = req.params.id;
     const user = await userModel.findById({
       _id: id,
@@ -396,17 +377,17 @@ const getDetailUser = async (req, res) => {
     }
     return res.status(200).send(user);
   }
-  catch(err){
+  catch (err) {
     return res.status(500).json({ message: `Internal Server Error: ${err}` });
   }
 }
 
 
 const getSettings = async (req, res) => {
-  try{
+  try {
     return res.status(200).send("ok");
   }
-  catch(err){
+  catch (err) {
     return res.status(500).json({ message: `Internal Server Error: ${err}` });
   }
 }

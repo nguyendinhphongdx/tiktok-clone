@@ -3,6 +3,7 @@ const router = express.Router();
 const MusicController = require('../Controller/MusicController')
 const { multerConfigFile } = require("../Helpers/multer");
 const verifyToken = require("../Middleware/auth");
+const driverService = require('../Middleware/driverService');
 
 //Phần của Linh
 router.get("/get-report", MusicController.getReportMusic);
@@ -11,14 +12,14 @@ router.get("/detail/:id", MusicController.viewMusicDetail);
 router.post(
   "/update/:id",
   verifyToken,
-  multerConfigFile.array("files", 2),
+  multerConfigFile.array("files", 2), driverService.uploadFiles,
   MusicController.updateMusic
 );
 // đặt multer ở đây để lây file send từ form data trước khi chạy vào hàm createMusic
 router.post(
   "/upload-music",
   verifyToken,
-  multerConfigFile.array("files", 2),
+  multerConfigFile.array("files", 2), driverService.uploadFiles,
   MusicController.createMusic
 );
 

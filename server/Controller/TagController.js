@@ -61,7 +61,7 @@ const createTrendy = async (req, res) => {
     }
     const trendyRecord = new TagModel({
       name,
-      thumbnail: `http://localhost:5000/public/images/${req.files[0].filename}`,
+      thumbnail: req.file.path,
       description,
       watch_count: 0,
       category,
@@ -101,10 +101,7 @@ const updateTag = async (req, res) => {
       {
         $set: {
           name: name,
-          thumbnail:
-            !!req.files?.length && !!req.files[0]
-              ? `http://localhost:5000/public/images/${req.files[0].filename}`
-              : tag.tag,
+          thumbnail: req.file ? req.file.path : tag.thumbnail,
           description: description,
           watch_count: 0,
         },

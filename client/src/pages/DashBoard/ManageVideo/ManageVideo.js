@@ -104,7 +104,7 @@ function ManagerVideos() {
         try {
             const url = `${configBaseURL}/api/video/admin-update/${selectedItem}`;
             const bodyFormData = new FormData();
-            bodyFormData.append('files', values.video);
+            bodyFormData.append('myVideo', values.video);
             bodyFormData.append('description', values.description);
             const res = await axios.post(url, bodyFormData, {
                 headers: { 'Content-Type': 'multipart/form-data' },

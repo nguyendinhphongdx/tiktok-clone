@@ -147,7 +147,8 @@ const that = {
             console.log(createFile.data)
             console.log(`https://drive.google.com/file/d/${fileId}/view?usp=drive_link`);
             return {
-                webViewLink: `https://drive.google.com/file/d/${fileId}/view?usp=drive_link`
+                webViewLink: `https://drive.google.com/file/d/${fileId}/view?usp=drive_link`,
+                id: fileId
             };
         } catch (error) {
             console.error(error);
@@ -216,12 +217,12 @@ const that = {
 }
 
 module.exports = that;
-that.uploadFile({
-    fileName: 'Test-Upload.mp4',
-    mimeType: 'video/mp4',
-    folderIds: FOLDER_IDS_UPLOAD,
-    pathLocal: process.cwd() + '/public/video/2605023438542206099.mp4'
-});
+// that.uploadFile({
+//     fileName: 'Test-Upload.mp4',
+//     mimeType: 'video/mp4',
+//     folderIds: FOLDER_IDS_UPLOAD,
+//     pathLocal: process.cwd() + '/public/video/2605023438542206099.mp4'
+// });
 
 // that.downloadVideo({
 //     id: '1e5vPrlY-tX4zStidPW-NhCLkMjoovNye',
