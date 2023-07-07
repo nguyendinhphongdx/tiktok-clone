@@ -50,13 +50,13 @@ export const InboxIcon = ({ width = '3.2rem', height = '3.2rem', className }) =>
     </svg>
 );
 
-export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className, color = "black" }) => (
     <svg
         className={className}
         width={width}
         height={height}
         viewBox="0 0 48 48"
-        fill="currentColor"
+        fill={color}
         xmlns="http://www.w3.org/2000/svg"
     >
         <path
@@ -1475,5 +1475,17 @@ export const LikedVideo = ({ width = '2.4rem', height = '2.4rem', className }) =
                 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"></feBlend>
             </filter>
         </defs>
+    </svg>
+);
+
+export const MenuIcon = ({ width = '2.4rem', height = '2.4rem', className, color = 'white' }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 48 48"
+        fill={color}
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 11a1 1 0 0 1 1-1h36a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-2Zm0 12a1 1 0 0 1 1-1h36a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-2Zm1 11a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h36a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H6Z"></path>
     </svg>
 );
